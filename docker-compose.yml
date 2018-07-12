@@ -20,6 +20,10 @@ services:
     depends_on:
       - db
       - index
+    volumes:
+      - ~/.m2:/root/.m2
+      - ./:/usr/src/mymaven
+      - ./project:/workspace/janusgraph/project
   db:
     image: cassandra:3.11
     ports:
