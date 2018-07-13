@@ -19,7 +19,9 @@ COPY config/run.sh /workspace/janusgraph
 COPY config/gremlin-server.yaml /workspace/janusgraph/conf/gremlin-server/gremlin-server.yaml
 COPY config/janusgraph.properties /workspace/janusgraph/janusgraph.properties
 COPY config/janusgraph-cassandra-es.properties /workspace/janusgraph/conf/janusgraph-cassandra-es.properties
+COPY config/janusgraph-cql-es.properties /workspace/janusgraph/conf/janusgraph-cql-es.properties
 COPY config/empty-sample.groovy /workspace/janusgraph/scripts/empty-sample.groovy
+COPY config/JanusGraphSchemaImporter.groovy /workspace/janusgraph/scripts/JanusGraphSchemaImporter.groovy
 
 WORKDIR /workspace/janusgraph
 RUN bin/gremlin-server.sh -i org.apache.tinkerpop gremlin-python 3.2.6
@@ -42,9 +44,9 @@ VOLUME "$USER_HOME_DIR/.m2"
 
 COPY . /usr/src/mymaven
 #WORKDIR /usr/src/mymaven
-ENTRYPOINT ["sh", "/usr/local/bin/mvn-entrypoint.sh"]
+#ENTRYPOINT ["sh", "/usr/local/bin/mvn-entrypoint.sh"]
 
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+#RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
-USER docker
-CMD /bin/bash
+#USER docker
+#CMD /bin/bash

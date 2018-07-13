@@ -23,7 +23,8 @@ services:
     volumes:
       - ~/.m2:/root/.m2
       - ./:/usr/src/mymaven
-      - ./project:/workspace/janusgraph/project
+      - ./janusgraph:/workspace/janusgraph/project
+      - ./janusgraph-utils:/workspace/janusgraph/util
   db:
     image: cassandra:3.11
     ports:
