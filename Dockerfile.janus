@@ -46,7 +46,8 @@ COPY . /usr/src/mymaven
 #WORKDIR /usr/src/mymaven
 #ENTRYPOINT ["sh", "/usr/local/bin/mvn-entrypoint.sh"]
 
-#RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
-
-#USER docker
-#CMD /bin/bash
+# Criando e configurando usuário docker
+RUN useradd -m docker && echo "docker:docker" | chpasswd \
+  && adduser docker sudo \
+  && adduser docker root \
+  && adduser www-data docker

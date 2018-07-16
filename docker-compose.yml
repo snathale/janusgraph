@@ -14,6 +14,7 @@ services:
         version: 0.2.1
         hadoop: hadoop2
       context: ./
+    working_dir: "/workspace/janusgraph"
     ports:
       - "8182:8182"
       - "8184:8184"
@@ -23,7 +24,7 @@ services:
     volumes:
       - ~/.m2:/root/.m2
       - ./:/usr/src/mymaven
-      - ./janusgraph:/workspace/janusgraph/project
+      - ./project:/workspace/janusgraph/project
       - ./janusgraph-utils:/workspace/janusgraph/util
   db:
     image: cassandra:3.11
