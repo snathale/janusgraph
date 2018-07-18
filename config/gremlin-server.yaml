@@ -6,7 +6,7 @@ scriptEvaluationTimeout: 30000
 serializedResponseTimeout: 30000
 channelizer: org.apache.tinkerpop.gremlin.server.channel.WebSocketChannelizer
 graphs: {
-  graph: conf/janusgraph-cassandra-es.properties
+  graph: conf/janusgraph-cql-es.properties
 }
 plugins:
   - janusgraph.imports
